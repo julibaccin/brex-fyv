@@ -9,22 +9,6 @@
         action=""
       >
         <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">Nombre</span>
-          <input formControlName="title" type="text" class="form-control" />
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">Descripcion</span>
-          <input
-            formControlName="description"
-            type="text"
-            class="form-control"
-          />
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">Dirección</span>
-          <input formControlName="location" type="text" class="form-control" />
-        </div>
-        <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1">Telefono</span>
           <input formControlName="phone" type="number" class="form-control" />
         </div>
@@ -48,12 +32,21 @@
   <!-- CARGAR PROPIEDAD -->
   <div class="row my-5">
     <div class="col-sm-12 col-md-6">
-      <h1>Gestion de propiedades</h1>
+      <h1>Gestion de Productos</h1>
       <form
         (ngSubmit)="handleCreateProperty()"
         [formGroup]="propertyForm"
         action=""
       >
+        <!-- Descripcion -->
+        <div class="input-group mb-3 w-100">
+          <span class="input-group-text" id="basic-addon1">Título</span>
+          <input
+            formControlName="description"
+            type="text"
+            class="form-control"
+          />
+        </div>
         <!-- Descripcion -->
         <div class="input-group mb-3 w-100">
           <span class="input-group-text" id="basic-addon1">Descripcion</span>
@@ -63,27 +56,11 @@
             class="form-control"
           />
         </div>
-        <!-- Direccion -->
-        <div class="input-group mb-3 w-100">
-          <span class="input-group-text" id="basic-addon1">Direccion</span>
-          <input formControlName="location" type="text" class="form-control" />
-        </div>
         <!-- Precio -->
         <div class="input-group mb-3 w-100">
           <span class="input-group-text" id="basic-addon1">Precio</span>
           <input formControlName="prize" type="number" class="form-control" />
         </div>
-        <!-- Habitaciones -->
-        <div class="input-group mb-3 w-100">
-          <span class="input-group-text" id="basic-addon1">Habitaciones</span>
-          <input formControlName="rooms" type="number" class="form-control" />
-        </div>
-        <!-- Cocheras -->
-        <div class="input-group mb-3 w-100">
-          <span class="input-group-text" id="basic-addon1">Cocheras</span>
-          <input formControlName="garage" type="number" class="form-control" />
-        </div>
-
         <!-- FOTOS -->
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1"
@@ -105,26 +82,6 @@
           <img width="100px" height="100px" #preViewImages src="" alt="" />
         </div>
         <hr />
-        <!-- Tiene patio -->
-        <label class="my-2" for="">Tiene patio</label>
-        <select
-          formControlName="havePlayground"
-          class="form-select"
-          aria-label="Acepta mascotas"
-        >
-          <option value="0">NO</option>
-          <option value="1">SI</option>
-        </select>
-        <!-- Acepta Mascotas -->
-        <label class="my-2" for="">Acepta Mascotas</label>
-        <select
-          formControlName="acceptPets"
-          class="form-select"
-          aria-label="Acepta mascotas"
-        >
-          <option value="0">NO</option>
-          <option value="1">SI</option>
-        </select>
         <button
           type="button"
           (click)="handleClearForm()"

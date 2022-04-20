@@ -5,13 +5,11 @@
       <div class="row text-center text-white">
         <div class="col">
           <br />
-          <h1 class="mt-5">VENADO PROPIEDADES</h1>
+          <h1 class="mt-5">Brex FyV</h1>
           <p style="font-size: 25px">
-            <strong
-              >Encontrá lo que estás buscando. Ahorrá cientos de llamados a
-              inmobiliarias.</strong
-            >
+            <strong>Financiamos tus sueños</strong>
           </p>
+          <p><strong>Obtené las mejores tazas del mercado</strong></p>
           <br />
         </div>
       </div>
@@ -21,93 +19,43 @@
   <div class="row bg-dark p-3">
     <div class="col-12 text-center text-white my-5">
       <h3 class="mb-5">
-        <strong>¡FILTRA PARA ENCONTRAR LO QUE BUSCÁS MÁS RAPIDO!</strong>
+        <strong
+          >¡FILTRA POR CATEGORÍA ENCONTRAR LO QUE BUSCÁS MÁS RAPIDO!</strong
+        >
       </h3>
-      <!-- HABITACIONES || BAÑOS || COCHERA -->
+      <!-- CATEGORYS -->
       <div class="row">
-        <!-- Habitaciones -->
-        <div class="col-12 col-md-4">
-          <label for="">Habitaciones</label>
+        <div class="offset-2 col-6 col-md-4">
+          <label for="">Categorías</label>
           <select
             [(ngModel)]="rooms"
             class="form-select"
             aria-label="Habitaciones"
           >
-            <option value="0" selected>Flexible</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
+            <option value="0" selected>Todas las categorías</option>
+            <option value="0">Autos</option>
+            <option value="0" selected>Cosechadoras</option>
           </select>
         </div>
-        <!-- Baños -->
-        <div class="col-12 col-md-4">
-          <label for="">Baños</label>
-          <select [(ngModel)]="toilets" class="form-select" aria-label="Baños">
-            <option value="0" selected>Flexible</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-        </div>
-        <!-- Cocheras -->
-        <div class="col-12 col-md-4">
-          <label for="">Cocheras</label>
-          <select
-            [(ngModel)]="garage"
-            class="form-select"
-            aria-label="Cocheras"
+        <button
+          class="col-6 col-md-4 btn btn-primary"
+          (click)="handleSearch('Alquilar')"
+        >
+          Buscar &nbsp;
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-search"
+            viewBox="0 0 16 16"
           >
-            <option value="0" selected>Flexible</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-        </div>
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
+          </svg>
+        </button>
       </div>
-    </div>
-    <div class="col-sm-12 offset-md-3 col-md-3 text-center text-light">
-      <button
-        class="btn btn-primary p-3 my-4 w-75"
-        (click)="handleSearch('Alquilar')"
-      >
-        Quiero Alquilar &nbsp;
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-search"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-          />
-        </svg>
-      </button>
-    </div>
-    <div class="col-sm-12 offset-md-0 col-md-3 text-center text-light">
-      <button
-        class="btn btn-primary p-3 my-4 w-75"
-        (click)="handleSearch('Comprar')"
-      >
-        Quiero Comprar &nbsp;
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-search"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-          />
-        </svg>
-      </button>
     </div>
   </div>
 
@@ -156,10 +104,10 @@
       </div>
     </div>
   </div>
-  <!-- RECOMENDADOS -->
+  <!-- TODOS -->
   <div class="row">
     <div class="col-12 p-3" style="font-size: 2rem">
-      <strong>Recomendados</strong>
+      <strong>Todos los productos</strong>
     </div>
     <div *ngFor="let i of recommendeds" class="col-sm-12 col-md-3 my-2">
       <div class="card w-100" style="width: 16rem">
@@ -170,51 +118,25 @@
         />
         <div class="card-body">
           <h5 class="card-title">{{ i.description }}</h5>
-          <br />
-          <p><strong>Ubicación: </strong>{{ i.location }}</p>
-          <p><strong>Habitaciones: </strong>{{ i.rooms }}</p>
-          <p><strong>Baños: </strong>{{ i.toilets }}</p>
-          <p><strong>Cocheras: </strong>{{ i.garage }}</p>
-          <p>
-            <strong>Acepta Mascotas: </strong>{{ i.acceptPets ? "Si" : "No" }}
-          </p>
-          <a
-            [routerLink]="'/detalle/' + i.id"
-            [state]="i"
-            class="btn btn-primary w-100"
-            >Ver más fotos</a
-          >
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- RECIENTES -->
-  <div class="row">
-    <div class="col-12 p-3" style="font-size: 2rem">
-      <strong>Recientes</strong>
-    </div>
-    <div *ngFor="let i of recommendeds" class="col-sm-12 col-md-3 my-2">
-      <div class="card w-100" style="width: 16rem">
-        <img
-          [src]="i.urlPhotos[0] || environment.urlHouse"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title">{{ i.description }}</h5>
-          <p><strong>Ubicación: </strong>{{ i.location }}</p>
-          <p><strong>Habitaciones: </strong>{{ i.rooms }}</p>
-          <p><strong>Baños: </strong>{{ i.toilets }}</p>
-          <p><strong>Cocheras: </strong>{{ i.garage }}</p>
-          <p>
-            <strong>Acepta Mascotas: </strong>{{ i.acceptPets ? "Si" : "No" }}
-          </p>
-          <a
-            [routerLink]="'/detalle/' + i.id"
-            [state]="i"
-            class="btn btn-primary w-100"
-            >Ver más fotos</a
-          >
+          <p><strong>Descripción: </strong>{{ i.location }}</p>
+          <div class="row">
+            <div class="col-6">
+              <a
+                [routerLink]="'/detalle/' + i.id"
+                [state]="i"
+                class="btn btn-primary w-100"
+                >Ver más fotos</a
+              >
+            </div>
+            <div class="col-6">
+              <a
+                [routerLink]="'/detalle/' + i.id"
+                [state]="i"
+                class="mx-1 btn btn-success w-100"
+                >Consultar Financiación</a
+              >
+            </div>
+          </div>
         </div>
       </div>
     </div>
