@@ -1,4 +1,4 @@
-# Venadopropiedades
+# brex-fyv
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.7.
 
@@ -17,4 +17,4 @@ house.svg
 
 # DEPLOY
 
-ng deploy # ESTE FLAG VA SI NO TENGO DOMINIO -> --base-href=https://julibaccin.github.io/venadopropiedades/
+ng deploy # ESTE FLAG VA SI NO TENGO DOMINIO -> --base-href=https://julibaccin.github.io/brex-fyv/

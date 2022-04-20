@@ -9,7 +9,7 @@
           <p style="font-size: 25px">
             <strong>Financiamos tus sueños</strong>
           </p>
-          <p><strong>Obtené las mejores tazas del mercado</strong></p>
+          <p><strong>Obtené las mejores tasas del mercado</strong></p>
           <br />
         </div>
       </div>
@@ -20,7 +20,8 @@
     <div class="col-12 text-center text-white my-5">
       <h3 class="mb-5">
         <strong
-          >¡FILTRA POR CATEGORÍA ENCONTRAR LO QUE BUSCÁS MÁS RAPIDO!</strong
+          >¡ Filtrá por categoría para encontrar lo que buscas más rápido
+          !</strong
         >
       </h3>
       <!-- CATEGORYS -->
@@ -69,13 +70,13 @@
   <!-- BUSQUEDA DEL FILTRO -->
   <div class="row" *ngIf="showResults">
     <div class="col-12 p-3" style="font-size: 2rem">
-      Resultados de busqueda: "{{ option }}""
+      Resultados de busqueda:
     </div>
     <div *ngIf="filterPropertys.length == 0">
       <hr />
-      <h4>Lamentablemente no encontramos propiedades con esos filtros.</h4>
+      <h4>Lamentablemente no encontramos productos con esos filtros.</h4>
       <br />
-      <h5>Podés cambiarlos y/o revisar los recomendados y los recientes.</h5>
+      <h5>Podés cambiarlos y/o revisar otros</h5>
       <hr />
     </div>
     <div *ngFor="let i of filterPropertys" class="col-sm-12 col-md-3 my-2">
@@ -87,19 +88,25 @@
         />
         <div class="card-body">
           <h5 class="card-title">{{ i.description }}</h5>
-          <p><strong>Ubicación: </strong>{{ i.location }}</p>
-          <p><strong>Habitaciones: </strong>{{ i.rooms }}</p>
-          <p><strong>Baños: </strong>{{ i.toilets }}</p>
-          <p><strong>Cocheras: </strong>{{ i.garage }}</p>
-          <p>
-            <strong>Acepta Mascotas: </strong>{{ i.acceptPets ? "Si" : "No" }}
-          </p>
-          <a
-            [routerLink]="'/detalle/' + i.id"
-            [state]="i"
-            class="btn btn-primary w-100"
-            >Ver más fotos</a
-          >
+          <p><strong>Descripción: </strong>{{ i.location }}</p>
+          <div class="row">
+            <div class="col-6">
+              <a
+                [routerLink]="'/detalle/' + i.id"
+                [state]="i"
+                class="btn btn-primary w-100"
+                >Ver más fotos</a
+              >
+            </div>
+            <div class="col-6">
+              <a
+                [routerLink]="'/detalle/' + i.id"
+                [state]="i"
+                class="mx-1 btn btn-success w-100"
+                >Consultar Financiación</a
+              >
+            </div>
+          </div>
         </div>
       </div>
     </div>
