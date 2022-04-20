@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "venadopropiedades": {
+      "hosting": {
+        "venadopropiedades": [
+          "venadopropiedades"
+        ]
+      }
+    }
+  }
+}

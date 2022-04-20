@@ -1,0 +1,79 @@
+<div class="container-fluid">
+  <!-- SPINNER CARGA -->
+  <div class="row" *ngIf="!property || !profile">
+    <div class="col p-5 text-center">
+      <div class="spinner-border" role="status">
+        <span class="sr-only"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="property && profile">
+    <div class="col-sm-12 col-md-6 p-5">
+      <h1>LA CASA NUEVA</h1>
+      <p>Descripción: {{ property.description }}</p>
+      <p>Precio: {{ property.prize == 0 ? "Consultar" : property.prize }}</p>
+      <p>Habitaciones: {{ property.rooms }}</p>
+      <p>Garages: {{ property.garage }}</p>
+      <p>Baños: {{ property.toilets }}</p>
+      <p>Acepta Mascotas: {{ property.acceptPets == 0 ? "No" : "Si" }}</p>
+      <!-- DATOS EMPRESA -->
+      <h1>Datos de contacto:</h1>
+      <p>Nombre: {{ profile.title }}</p>
+      <p>Direccion: {{ profile.location }}</p>
+      <p>Celular: {{ profile.phone }}</p>
+      <a [href]="'https://wa.me/' + profile.whatsapp" class="btn btn-success"
+        >WhatsApp</a
+      >
+    </div>
+    <div class="col-sm-12 col-md-6 p-5">
+      <div
+        id="carouselExampleControls"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              [src]="property.urlPhotos[0] || environment.urlHouse"
+              class="d-block"
+              alt="fotos de casa"
+            />
+          </div>
+          <div *ngIf="property.urlPhotos[1]" class="carousel-item">
+            <img
+              [src]="property.urlPhotos[1]"
+              class="d-block"
+              alt="fotos de casa"
+            />
+          </div>
+          <div *ngIf="property.urlPhotos[2]" class="carousel-item">
+            <img
+              [src]="property.urlPhotos[2]"
+              class="d-block"
+              alt="fotos de casa"
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previa</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

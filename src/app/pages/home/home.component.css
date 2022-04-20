@@ -1,0 +1,15 @@
+.mainImg::after {
+  filter: brightness(0.4);
+}
+.mainImg {
+  background-color: rgba(0, 0, 0, 0.8);
+  background-image: url("../../../assets/mainImage.jfif");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  height: 100%;
+  max-height: 300px;
+  min-height: 300px;
+  max-width: 100%;
+}
