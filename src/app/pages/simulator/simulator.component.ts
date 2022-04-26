@@ -11,11 +11,11 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class SimulatorComponent implements OnInit {
   total = 0;
-  interesGastos = 10;
-  interesPersonales12 = 5;
-  interesPersonales36 = 10;
-  interesPrendarios12 = 5;
-  interesPrendarios36 = 10;
+  interesGastos = 14;
+  interesPersonales12 = 33.6;
+  interesPersonales36 = 48;
+  interesPrendarios12 = 33.6;
+  interesPrendarios36 = 42;
   simulatorForm: FormGroup = this.formBuilder.group({
     creditType: ['personal', [Validators.required]],
     duesCount: [1, [Validators.required]],
@@ -34,7 +34,7 @@ export class SimulatorComponent implements OnInit {
   handleCalculate() {
     const { pedir, creditType, duesCount } = this.simulatorForm.value;
     if (pedir <= 0)
-      return this.alert.error('Por favor ingrese el monto que desea pedir');
+      return this.alert.error('Por favor ingrese un monto válido');
 
     // COMISION
     const precioConComision = this.calculateComision(pedir);
