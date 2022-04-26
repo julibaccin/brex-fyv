@@ -24,9 +24,7 @@ export class HomeComponent implements OnInit {
   option = '';
 
   // Filters
-  rooms: number = 0;
-  toilets: number = 0;
-  garage: number = 0;
+  category: string = '0';
 
   constructor(private propertiesService: PropertiesService) {}
 
@@ -40,10 +38,7 @@ export class HomeComponent implements OnInit {
     this.option = type;
 
     const filterPropertys = await this.propertiesService.getPropertysFilter([
-      { key: 'rooms', value: Number(this.rooms) },
-      { key: 'garage', value: Number(this.garage) },
-      { key: 'toilets', value: Number(this.toilets) },
-      { key: 'type', value: type == 'Alquilar' ? 1 : 2 },
+      { key: 'category', value: this.category },
     ]);
 
     this.filterPropertys = filterPropertys;

@@ -10,23 +10,16 @@
 
   <div class="row" *ngIf="property && profile">
     <div class="col-sm-12 col-md-6 p-5">
-      <h1>Auto 0km</h1>
-      <p>
-        Descripción Completa: Esta es una descripcion completa Lorem ipsum dolor
-        sit, amet consectetur adipisicing elit. Commodi accusamus itaque
-        suscipit accusantium nostrum numquam sed alias, quam nihil iure, dolor
-        facere error iste eos consequatur fugiat, aut sapiente architecto
-        excepturi sunt. Non ab laborum numquam quasi vitae harum architecto
-        molestias soluta asperiores deleniti ipsam explicabo, quos iusto odit
-        dignissimos!
-      </p>
+      <h1>{{ property.title }}</h1>
+      <p>Descripción Completa: {{ property.description }}</p>
       <hr />
       <!-- DATOS EMPRESA -->
       <h1>Consultá la financiación</h1>
-      <p>Podés llamar al 03462303030 o por WhatsApp con el botón</p>
+      <p>Podés llamar al {{ profile.phone }} o por WhatsApp con el botón</p>
       <a [href]="'https://wa.me/' + profile.whatsapp" class="btn btn-success"
         >WhatsApp</a
       >
+      <a routerLink="/" class="btn btn-primary mx-1">Volver</a>
     </div>
     <div class="col-sm-12 col-md-6 p-5">
       <div

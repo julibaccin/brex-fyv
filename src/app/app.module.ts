@@ -10,6 +10,7 @@ import { PanelComponent } from './pages/panel/panel.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DetailComponent } from './pages/detail/detail.component';
+import { SimulatorComponent } from './pages/simulator/simulator.component';
 // FIREBASE
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
@@ -30,6 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     HeaderComponent,
     DetailComponent,
+    SimulatorComponent,
   ],
   imports: [
     FormsModule,

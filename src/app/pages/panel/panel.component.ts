@@ -17,8 +17,8 @@ import { PropertiesService } from 'src/app/services/properties.service';
 })
 export class PanelComponent implements OnInit {
   profileForm: FormGroup;
-  propertyForm: FormGroup;
-  properties: any = [];
+  productForm: FormGroup;
+  products: any = [];
   files: File[] = [];
   @ViewChildren('preViewImages', {}) preViewImages: QueryList<
     ElementRef<HTMLImageElement>
@@ -30,23 +30,18 @@ export class PanelComponent implements OnInit {
     private property: PropertiesService
   ) {
     this.profileForm = this.fb.group({
-      title: ['', [Validators.required]],
-      description: [''],
-      location: [''],
       phone: ['', [Validators.required]],
       whatsapp: [''],
-      urlImg: [''],
+      interesGastos: [0],
+      interesPersonales12: [0],
+      interesPersonales36: [0],
+      interesPrendarios12: [0],
+      interesPrendarios36: [0],
     });
-    this.propertyForm = this.fb.group({
+    this.productForm = this.fb.group({
+      title: [''],
       description: [''],
-      location: [''],
-      prize: [0],
-      type: [1],
-      rooms: [1],
-      garage: [0],
-      toilets: [1],
-      acceptPets: [0],
-      havePlayground: [0],
+      category: ['Vehiculos'],
     });
   }
 
@@ -56,7 +51,7 @@ export class PanelComponent implements OnInit {
   }
 
   async getProperties() {
-    this.properties = await this.auth.getMyProperties();
+    this.products = await this.auth.getMyProperties();
   }
 
   async getProfile() {
@@ -67,7 +62,7 @@ export class PanelComponent implements OnInit {
   async handleUpdateClick(property: any) {
     this.clearPreviewAndFiles();
     if (property) {
-      this.propertyForm.patchValue(property);
+      this.productForm.patchValue(property);
       property.urlPhotos.forEach((url: string, index: number) => {
         if (this.preViewImages) {
           this.preViewImages.toArray()[index].nativeElement.src = url;
@@ -110,24 +105,24 @@ export class PanelComponent implements OnInit {
     });
   }
 
-  async handleCreateProperty() {
+  async handleCreateProduct() {
     // Upload images
     const urls = await this.property.addImg('properties', this.files);
     //
 
     await this.property.addProperty({
-      ...this.propertyForm.value,
+      ...this.productForm.value,
       urlPhotos: urls,
     });
     await this.getProperties();
-    this.alert.success('Propiedad cargada');
-    this.propertyForm.reset();
+    this.alert.success('Producto cargado');
+    this.productForm.reset();
   }
 
   async handleDeleteProperty(property: any) {
     await this.property.deleteProperty(property);
-    this.properties = this.properties.filter((p: any) => p.id != property.id);
-    this.alert.success('Propiedad eliminada con éxito');
+    this.products = this.products.filter((p: any) => p.id != property.id);
+    this.alert.success('Producto eliminado con éxito');
   }
 
   async handleChangeActive(property: any) {
@@ -137,24 +132,16 @@ export class PanelComponent implements OnInit {
 
   async handleClearForm() {
     this.clearPreviewAndFiles();
-    this.propertyForm.reset({
+    this.productForm.reset({
+      title: [''],
       description: [''],
-      location: [''],
-      prize: [0],
-      type: [1],
-      rooms: [1],
-      garage: [0],
-      toilets: [1],
-      acceptPets: [0],
-      havePlayground: [0],
+      category: ['Vehiculos'],
     });
   }
 
   clearPreviewAndFiles() {
     this.files = [];
-    console.log('ACA', this.preViewImages);
     this.preViewImages?.toArray().forEach((preViewImage) => {
-      console.log(preViewImage);
       preViewImage.nativeElement.src = '';
     });
   }

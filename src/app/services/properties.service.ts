@@ -107,10 +107,9 @@ export class PropertiesService {
     await deleteDoc(doc(this.firestore, 'properties/' + property.id));
   }
 
-  async getPropertysFilter(filter: { key: string; value: number }[]) {
-    
+  async getPropertysFilter(filter: { key: string; value: string }[]) {
     const filters: any = [];
-    filter = filter.filter(f => f.value != 0);
+    filter = filter.filter((f) => f.value != '0');
 
     const contructorDeQueyr = filter.map((f) => where(f.key, '==', f.value));
 

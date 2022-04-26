@@ -1,0 +1,65 @@
+<div class="container-fluid">
+  <div class="row my-5">
+    <div class="col-sm-12 col-md-6 mx-auto">
+      <h1>Simulador de prestamos</h1>
+      <form
+        [formGroup]="simulatorForm"
+        action=""
+        (ngSubmit)="handleCalculate()"
+      >
+        <!-- CREDIT TYPE -->
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="creditType"
+            >Tipo de crédito</label
+          >
+          <select class="form-select" formControlName="creditType">
+            <option value="personal" selected>Personal</option>
+            <option value="prendario">Prendario</option>
+          </select>
+        </div>
+        <!-- CUANTO QUIERO PEDIR -->
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"
+            >Cuanto desea pedir</span
+          >
+          <input
+            formControlName="pedir"
+            type="number"
+            class="form-control"
+            placeholder="pedir"
+            aria-label="pedir"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+        <!-- COUNT-->
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="duesCount"
+            >Cantidad de cuotas</label
+          >
+          <select class="form-select" formControlName="duesCount">
+            <option
+              *ngFor="
+                let item of [
+                  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                  1, 11, 1, 1, 1, 1, 1, 1, 1, 1, 11, 1, 1, 1, 1
+                ];
+                index as i
+              "
+              [value]="i + 1"
+            >
+              {{ i + 1 }}
+            </option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-success w-100 mx-1">
+          Calcular
+        </button>
+      </form>
+      <hr />
+      <div *ngIf="total != 0">
+        <h1>Tu credito</h1>
+        <h3>Te queda una cuota de : $ {{ total }}</h3>
+      </div>
+    </div>
+  </div>
+</div>

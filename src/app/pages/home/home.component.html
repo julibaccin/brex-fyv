@@ -29,13 +29,12 @@
         <div class="offset-2 col-6 col-md-4">
           <label for="">Categorías</label>
           <select
-            [(ngModel)]="rooms"
+            [(ngModel)]="category"
             class="form-select"
             aria-label="Habitaciones"
           >
             <option value="0" selected>Todas las categorías</option>
-            <option value="0">Autos</option>
-            <option value="0" selected>Cosechadoras</option>
+            <option value="Vehiculos">Vehiculos</option>
           </select>
         </div>
         <button
@@ -87,23 +86,16 @@
           alt="..."
         />
         <div class="card-body">
-          <h5 class="card-title">{{ i.description }}</h5>
-          <p><strong>Descripción: </strong>{{ i.location }}</p>
+          <h5 class="card-title">{{ i.title }}</h5>
+          <p><strong>Descripción: </strong>{{ i.description }}</p>
+          <p><strong>Categoría: </strong>{{ i.category }}</p>
           <div class="row">
-            <div class="col-6">
+            <div class="col-12">
               <a
                 [routerLink]="'/detalle/' + i.id"
                 [state]="i"
                 class="btn btn-primary w-100"
-                >Ver más fotos</a
-              >
-            </div>
-            <div class="col-6">
-              <a
-                [routerLink]="'/detalle/' + i.id"
-                [state]="i"
-                class="mx-1 btn btn-success w-100"
-                >Consultar Financiación</a
+                >Obtener más información</a
               >
             </div>
           </div>
@@ -124,23 +116,16 @@
           alt="..."
         />
         <div class="card-body">
-          <h5 class="card-title">{{ i.description }}</h5>
-          <p><strong>Descripción: </strong>{{ i.location }}</p>
+          <h5 class="card-title">{{ i.title }}</h5>
+          <p><strong>Descripción: </strong>{{ i.description }}</p>
+          <p><strong>Categoría: </strong>{{ i.category }}</p>
           <div class="row">
-            <div class="col-6">
+            <div class="col-12">
               <a
                 [routerLink]="'/detalle/' + i.id"
                 [state]="i"
                 class="btn btn-primary w-100"
-                >Ver más fotos</a
-              >
-            </div>
-            <div class="col-6">
-              <a
-                [routerLink]="'/detalle/' + i.id"
-                [state]="i"
-                class="mx-1 btn btn-success w-100"
-                >Consultar Financiación</a
+                >Obtener más información</a
               >
             </div>
           </div>

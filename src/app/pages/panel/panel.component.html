@@ -20,6 +20,55 @@
             class="form-control"
           />
         </div>
+        <!-- CREDITOS -->
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"
+            >Interes Creditos Personales (Hasta 12)</span
+          >
+          <input
+            formControlName="interesPersonales12"
+            type="number"
+            class="form-control"
+          />
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"
+            >Interes Creditos Personales (Hasta 36)</span
+          >
+          <input
+            formControlName="interesPersonales36"
+            type="number"
+            class="form-control"
+          />
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"
+            >Interes Creditos Prendarios (Hasta 12)</span
+          >
+          <input
+            formControlName="interesPrendarios12"
+            type="number"
+            class="form-control"
+          />
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"
+            >Interes Creditos Prendarios (Hasta 36)</span
+          >
+          <input
+            formControlName="interesPrendarios36"
+            type="number"
+            class="form-control"
+          />
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Interes Gastos</span>
+          <input
+            formControlName="interesGastos"
+            type="number"
+            class="form-control"
+          />
+        </div>
         <button class="btn btn-success w-25 rounded-pill" type="submit">
           Actualizar
         </button>
@@ -29,23 +78,19 @@
 
   <hr />
 
-  <!-- CARGAR PROPIEDAD -->
+  <!-- CARGAR PRODUCTO -->
   <div class="row my-5">
     <div class="col-sm-12 col-md-6">
       <h1>Gestion de Productos</h1>
       <form
-        (ngSubmit)="handleCreateProperty()"
-        [formGroup]="propertyForm"
+        (ngSubmit)="handleCreateProduct()"
+        [formGroup]="productForm"
         action=""
       >
         <!-- Descripcion -->
         <div class="input-group mb-3 w-100">
           <span class="input-group-text" id="basic-addon1">Título</span>
-          <input
-            formControlName="description"
-            type="text"
-            class="form-control"
-          />
+          <input formControlName="title" type="text" class="form-control" />
         </div>
         <!-- Descripcion -->
         <div class="input-group mb-3 w-100">
@@ -56,10 +101,10 @@
             class="form-control"
           />
         </div>
-        <!-- Precio -->
+        <!-- Categoria -->
         <div class="input-group mb-3 w-100">
-          <span class="input-group-text" id="basic-addon1">Precio</span>
-          <input formControlName="prize" type="number" class="form-control" />
+          <span class="input-group-text" id="basic-addon1">Categoría</span>
+          <input formControlName="category" type="text" class="form-control" />
         </div>
         <!-- FOTOS -->
         <div class="input-group mb-3">
@@ -101,19 +146,19 @@
     <!-- VER PROPIEDADES -->
 
     <div class="col-sm-12 col-md-6">
-      <h1>Mis propiedades</h1>
+      <h1>Mis Productos</h1>
       <div class="table-responsive">
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">Dirección</th>
+              <th scope="col">Titulo</th>
               <th scope="col">Estado</th>
               <th scope="col">Acciones</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let i of properties">
-              <td>{{ i.location }}</td>
+            <tr *ngFor="let i of products">
+              <td>{{ i.title }}</td>
               <td>
                 <button
                   (click)="handleChangeActive(i)"
