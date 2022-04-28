@@ -1,17 +1,58 @@
 <!-- Image and text -->
-<nav class="navbar navbar-dark bg-dark p-3">
-  <a class="navbar-brand" routerLink="/"> Brex FyV </a>
+<nav
+  class="navbar navbar-dark navbar-expand-lg"
+  style="background-color: rgba(32, 8, 58, 255)"
+>
+  <div class="container-fluid">
+    <div>
+      <a class="navbar-brand" routerLink="/">
+        <img
+          src="../../../assets/logo.jpg"
+          alt=""
+          width="100"
+          height="100"
+          class="d-inline-block align-text-top"
+        />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="/"
+            ><span>Créditos Prendarios</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="/simulador"
+            ><span>Simulador</span></a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
   <!-- <ul class="navbar-nav">
     <li class="nav-item active">
       <a class="nav-link active" routerLink="/login">Ingresar</a>
     </li>
   </ul> -->
-  <ul class="navbar-nav">
-    <li class="nav-item active">
-      <a class="nav-link active" routerLink="/">Créditos Prendarios</a>
-    </li>
-    <li class="nav-item active">
-      <a class="nav-link active" routerLink="/simulador">Simulador Crédito</a>
-    </li>
-  </ul>
 </nav>

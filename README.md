@@ -17,4 +17,4 @@ house.svg
 
 # DEPLOY
 
-ng deploy # ESTE FLAG VA SI NO TENGO DOMINIO -> --base-href=https://julibaccin.github.io/brex-fyv/
+ng deploy --base-href=https://julibaccin.github.io/brex-fyv/ || --cname=brex.fyv.ar
