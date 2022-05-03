@@ -4,17 +4,17 @@
   style="background-color: rgba(32, 8, 58, 255)"
 >
   <div class="container-fluid">
-    <div>
-      <a class="navbar-brand" routerLink="/">
-        <img
-          src="../../../assets/logo.jpg"
-          alt=""
-          width="100"
-          height="100"
-          class="d-inline-block align-text-top"
-        />
-      </a>
-      <button
+        <a class="navbar-brand" routerLink="/">
+          <img
+            src="../../../assets/logo.jpg"
+            alt=""
+            width="100"
+            height="100"
+            class="d-inline-block align-text-top"
+          />
+        </a>
+      
+        <button
         class="navbar-toggler"
         type="button"
         data-bs-toggle="collapse"
@@ -25,7 +25,9 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-    </div>
+      
+      
+    
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
@@ -36,6 +38,15 @@
             [routerLinkActiveOptions]="{ exact: true }"
             routerLink="/"
             ><span>Créditos Prendarios</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="/creditos-personales"
+            ><span>Creditos Personales</span></a
           >
         </li>
         <li class="nav-item">

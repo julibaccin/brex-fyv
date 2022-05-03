@@ -19,6 +19,7 @@ import { environment } from 'src/environments/environment';
 import { provideAuth } from '@angular/fire/auth';
 import { getAuth } from '@firebase/auth';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PersonalCreditsComponent } from './pages/personal-credits/personal-credits.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     DetailComponent,
     SimulatorComponent,
+    PersonalCreditsComponent,
   ],
   imports: [
     FormsModule,
