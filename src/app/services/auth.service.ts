@@ -82,4 +82,19 @@ export class AuthService {
     });
     return myProperties;
   }
+
+  // HARDCODEADO
+  async getValoresSimulador() {
+    const queryFilter = query(
+      collection(this.firestore, 'profile'),
+      where('name', '==', 'santiago')
+    );
+    let values: any = {};
+    const querySnapshot = await getDocs(queryFilter);
+    querySnapshot.forEach((doc) => {
+      values = { ...doc.data() };
+    });
+    console.log(values);
+    return values;
+  }
 }

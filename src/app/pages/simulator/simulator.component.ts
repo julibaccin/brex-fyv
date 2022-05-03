@@ -11,48 +11,63 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class SimulatorComponent implements OnInit {
   total = 0;
-  interesGastos = 14;
-  interesPersonales12 = 33.6;
-  interesPersonales36 = 48;
-  interesPrendarios12 = 33.6;
-  interesPrendarios36 = 42;
+  interesGastos: number;
+  interesPersonales12: number;
+  interesPersonales36: number;
+  interesPrendarios12: number;
+  interesPrendarios36: number;
+  whatsapp: string;
   simulatorForm: FormGroup = this.formBuilder.group({
     creditType: ['personal', [Validators.required]],
-    duesCount: [1, [Validators.required]],
+    duesCount: [12, [Validators.required]],
     pedir: [0],
   });
 
   constructor(
     private auth: AuthService,
     private formBuilder: FormBuilder,
-    private router: Router,
     private alert: AlertsService
   ) {}
 
-  ngOnInit(): void {}
+  async ngOnInit(): Promise<void> {
+    const {
+      interesGastos,
+      interesPersonales12,
+      interesPersonales36,
+      interesPrendarios12,
+      interesPrendarios36,
+      whatsapp,
+    } = await this.auth.getValoresSimulador();
+    this.interesGastos = interesGastos;
+    this.interesPersonales12 = interesPersonales12;
+    this.interesPersonales36 = interesPersonales36;
+    this.interesPrendarios12 = interesPrendarios12;
+    this.interesPrendarios36 = interesPrendarios36;
+    this.whatsapp = whatsapp;
+  }
 
   handleCalculate() {
     const { pedir, creditType, duesCount } = this.simulatorForm.value;
-    if (pedir <= 0)
-      return this.alert.error('Por favor ingrese un monto válido');
-
+    if (pedir < 5000)
+      return this.alert.error(
+        'Por favor ingrese un monto válido (Mayor a $5000)'
+      );
     // COMISION
     const precioConComision = this.calculateComision(pedir);
-
     // INTERESES
     const precioConInteres =
       creditType == 'personal' && duesCount <= 12
         ? precioConComision +
-          (precioConComision * this.interesPersonales12) / 100
+          (precioConComision * (this.interesPersonales12 * 12)) / 100
         : creditType == 'personal' && duesCount > 12
         ? precioConComision +
-          (precioConComision * this.interesPersonales36) / 100
+          (precioConComision * (this.interesPersonales36 * 12)) / 100
         : creditType == 'prendario' && duesCount > 12
         ? precioConComision +
-          (precioConComision * this.interesPrendarios12) / 100
+          (precioConComision * (this.interesPrendarios12 * 12)) / 100
         : creditType == 'prendario' && duesCount > 12
         ? precioConComision +
-          (precioConComision * this.interesPrendarios36) / 100
+          (precioConComision * (this.interesPrendarios36 * 12)) / 100
         : 0;
 
     // DIVIDO POR CUOTAS

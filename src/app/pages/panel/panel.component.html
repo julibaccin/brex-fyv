@@ -23,7 +23,7 @@
         <!-- CREDITOS -->
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1"
-            >Interes Creditos Personales (Hasta 12)</span
+            >Interes Creditos Personales Mensual (Hasta 12)</span
           >
           <input
             formControlName="interesPersonales12"
@@ -33,7 +33,7 @@
         </div>
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1"
-            >Interes Creditos Personales (Hasta 36)</span
+            >Interes Creditos Personales Mensual (Hasta 36)</span
           >
           <input
             formControlName="interesPersonales36"
@@ -43,7 +43,7 @@
         </div>
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1"
-            >Interes Creditos Prendarios (Hasta 12)</span
+            >Interes Creditos Prendarios Mensual (Hasta 12)</span
           >
           <input
             formControlName="interesPrendarios12"
@@ -53,7 +53,7 @@
         </div>
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1"
-            >Interes Creditos Prendarios (Hasta 36)</span
+            >Interes Creditos Prendarios Mensual (Hasta 36)</span
           >
           <input
             formControlName="interesPrendarios36"
@@ -87,7 +87,7 @@
         [formGroup]="productForm"
         action=""
       >
-        <!-- Descripcion -->
+        <!-- Title -->
         <div class="input-group mb-3 w-100">
           <span class="input-group-text" id="basic-addon1">Título</span>
           <input formControlName="title" type="text" class="form-control" />
@@ -105,6 +105,11 @@
         <div class="input-group mb-3 w-100">
           <span class="input-group-text" id="basic-addon1">Categoría</span>
           <input formControlName="category" type="text" class="form-control" />
+        </div>
+        <!-- Precio -->
+        <div class="input-group mb-3 w-100">
+          <span class="input-group-text" id="basic-addon1">Precio</span>
+          <input formControlName="prize" type="text" class="form-control" />
         </div>
         <!-- FOTOS -->
         <div class="input-group mb-3">

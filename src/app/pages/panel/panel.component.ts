@@ -23,6 +23,14 @@ export class PanelComponent implements OnInit {
   @ViewChildren('preViewImages', {}) preViewImages: QueryList<
     ElementRef<HTMLImageElement>
   >;
+
+  initalFormValue = {
+    title: [''],
+    description: [''],
+    category: ['Vehiculos'],
+    prize: [0],
+  };
+
   constructor(
     private fb: FormBuilder,
     private auth: AuthService,
@@ -38,11 +46,7 @@ export class PanelComponent implements OnInit {
       interesPrendarios12: [0],
       interesPrendarios36: [0],
     });
-    this.productForm = this.fb.group({
-      title: [''],
-      description: [''],
-      category: ['Vehiculos'],
-    });
+    this.productForm = this.fb.group(this.initalFormValue);
   }
 
   async ngOnInit(): Promise<void> {
@@ -132,11 +136,7 @@ export class PanelComponent implements OnInit {
 
   async handleClearForm() {
     this.clearPreviewAndFiles();
-    this.productForm.reset({
-      title: [''],
-      description: [''],
-      category: ['Vehiculos'],
-    });
+    this.productForm.reset(this.initalFormValue);
   }
 
   clearPreviewAndFiles() {

@@ -9,11 +9,16 @@
           <p style="font-size: 25px">
             <strong>Financiamos tus sueños</strong>
           </p>
-          <p><strong>Obtené las mejores tasas del mercado</strong></p>
+          <p>
+            <strong
+              >Obtené las mejores tasas del mercado | | La nueva generación de
+              prestamos</strong
+            >
+          </p>
           <br />
           <h5>
-            Probá nuestro simulador de prestamos haciendo click &nbsp;
-            <button routerLink="simulador" class="btn btn-primary">Aquí</button>
+            Probá nuestro simulador de prestamos haciendo click
+            <strong class="text-primary" routerLink="simulador">Aquí</strong>
           </h5>
         </div>
       </div>
@@ -30,7 +35,7 @@
       </h3>
       <!-- CATEGORYS -->
       <div class="row">
-        <div class="offset-2 col-6 col-md-4">
+        <div class="col-12 col-md-6">
           <label for="">Categorías</label>
           <select
             [(ngModel)]="category"
@@ -42,7 +47,7 @@
           </select>
         </div>
         <button
-          class="col-6 col-md-4 btn btn-primary"
+          class="col-12 col-md-6 btn-primary mt-2 p-1"
           (click)="handleSearch('Alquilar')"
         >
           Buscar &nbsp;
@@ -93,6 +98,7 @@
           <h5 class="card-title">{{ i.title }}</h5>
           <p><strong>Descripción: </strong>{{ i.description }}</p>
           <p><strong>Categoría: </strong>{{ i.category }}</p>
+          <p><strong>Precio: </strong>{{ i.prize || "Consultar" }}</p>
           <div class="row">
             <div class="col-12">
               <a
@@ -112,7 +118,7 @@
     <div class="col-12 p-3" style="font-size: 2rem">
       <strong>Todos los productos</strong>
     </div>
-    <div *ngFor="let i of recommendeds" class="col-sm-12 col-md-3 my-2">
+    <div *ngFor="let i of products" class="col-sm-12 col-md-3 my-2">
       <div class="card w-100" style="width: 16rem">
         <img
           [src]="i.urlPhotos[0] || environment.urlHouse"
@@ -123,6 +129,7 @@
           <h5 class="card-title">{{ i.title }}</h5>
           <p><strong>Descripción: </strong>{{ i.description }}</p>
           <p><strong>Categoría: </strong>{{ i.category }}</p>
+          <p><strong>Precio: $ </strong>{{ i.prize || "Consultar" }}</p>
           <div class="row">
             <div class="col-12">
               <a

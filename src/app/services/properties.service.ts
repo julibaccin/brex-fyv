@@ -45,31 +45,22 @@ export class PropertiesService {
     private auth: AuthService
   ) {}
 
-  async getRecommendeds() {
-    const recommendeds: any = [];
-    const querySnapshot = await getDocs(
-      collection(this.firestore, 'properties')
+  async getAllProducts() {
+    const queryFilter = query(
+      collection(this.firestore, 'properties'),
+      where('active', '==', true)
     );
+    const products: any = [];
+    const querySnapshot = await getDocs(queryFilter);
     querySnapshot.forEach((doc) => {
-      recommendeds.push({ ...doc.data(), id: doc.id });
+      products.push({ ...doc.data(), id: doc.id });
     });
-    return recommendeds;
+    return products;
   }
 
   async getProperty(id: string) {
     let docSearch = await getDoc(doc(this.firestore, 'properties/' + id));
     return docSearch.data();
-  }
-
-  async getRecents() {
-    const recents: any = [];
-    const querySnapshot = await getDocs(
-      collection(this.firestore, 'properties')
-    );
-    querySnapshot.forEach((doc) => {
-      recents.push({ ...doc.data(), id: doc.id });
-    });
-    return recents;
   }
 
   async addProperty(property: Properties) {
@@ -91,7 +82,6 @@ export class PropertiesService {
       );
       const imgd = await uploadBytes(storageRef, img);
       const refImage = ref(this.storage, imgd.ref.fullPath);
-      console.log(refImage);
       paths.push(await getDownloadURL(refImage));
     }
 

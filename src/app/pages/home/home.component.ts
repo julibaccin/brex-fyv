@@ -13,24 +13,20 @@ enum PropertyType {
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  recommendeds: any = [];
+  products: any = [];
   recents: any = [];
   filterPropertys: any = [];
-
   environment = environment;
-
   showResults = false;
   loading = false;
   option = '';
-
   // Filters
   category: string = '0';
 
   constructor(private propertiesService: PropertiesService) {}
 
   async ngOnInit(): Promise<void> {
-    this.recommendeds = await this.propertiesService.getRecommendeds();
-    this.recents = await this.propertiesService.getRecents();
+    this.products = await this.propertiesService.getAllProducts();
   }
 
   async handleSearch(type: string) {
