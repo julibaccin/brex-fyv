@@ -16,6 +16,7 @@ export class SimulatorComponent implements OnInit {
   interesPersonales36: number;
   interesPrendarios12: number;
   interesPrendarios36: number;
+  showTope = false;
   whatsapp: string;
   simulatorForm: FormGroup = this.formBuilder.group({
     creditType: ['personal', [Validators.required]],
@@ -47,11 +48,18 @@ export class SimulatorComponent implements OnInit {
   }
 
   handleCalculate() {
+    this.showTope = false;
+    this.total = 0;
+
     const { pedir, creditType, duesCount } = this.simulatorForm.value;
     if (pedir < 5000)
       return this.alert.error(
         'Por favor ingrese un monto válido (Mayor a $5000)'
       );
+    if (creditType == 'personal' && pedir > 400_000)
+      return (this.showTope = true);
+    if (creditType == 'prendario' && pedir > 1_500_000)
+      return (this.showTope = true);
     // COMISION
     const precioConComision = this.calculateComision(pedir);
     // INTERESES
@@ -61,13 +69,13 @@ export class SimulatorComponent implements OnInit {
           (precioConComision * (this.interesPersonales12 * 12)) / 100
         : creditType == 'personal' && duesCount > 12
         ? precioConComision +
-          (precioConComision * (this.interesPersonales36 * 12)) / 100
-        : creditType == 'prendario' && duesCount > 12
+          (precioConComision * (this.interesPersonales36 * 36)) / 100
+        : creditType == 'prendario' && duesCount <= 12
         ? precioConComision +
           (precioConComision * (this.interesPrendarios12 * 12)) / 100
         : creditType == 'prendario' && duesCount > 12
         ? precioConComision +
-          (precioConComision * (this.interesPrendarios36 * 12)) / 100
+          (precioConComision * (this.interesPrendarios36 * 36)) / 100
         : 0;
 
     // DIVIDO POR CUOTAS

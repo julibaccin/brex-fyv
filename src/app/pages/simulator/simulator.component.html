@@ -49,18 +49,38 @@
       <hr />
       <div *ngIf="total != 0">
         <h1>Tu credito</h1>
-        <h5>Monto solicitado: ${{ this.simulatorForm.value.pedir }}</h5>
+        <h5>
+          Monto solicitado: ${{ this.simulatorForm.value.pedir | number }}
+        </h5>
         <h5>
           Intereses: ${{
             total * this.simulatorForm.value.duesCount -
-              this.simulatorForm.value.pedir
+              this.simulatorForm.value.pedir | number
           }}
         </h5>
-        <h5>Devolvés : ${{ total * this.simulatorForm.value.duesCount }}</h5>
+        <h5>
+          Devolvés : ${{ total * this.simulatorForm.value.duesCount | number }}
+        </h5>
         <h5>
           Te queda una cuota de :
           <strong>${{ total | number }}</strong>
         </h5>
+        <a
+          class="w-100"
+          [href]="'https://wa.me/' + whatsapp"
+          class="btn btn-success p-2"
+        >
+          Consultanos por Whatsapp haciendo click acá
+        </a>
+      </div>
+      <div *ngIf="showTope">
+        <h1>Información</h1>
+        <h5>Monto solicitado: ${{ this.simulatorForm.value.pedir }}</h5>
+        <p>
+          Según el tipo de crédito y monto que seleccionaste. Creemos que la
+          mejor forma de ayudarte es por Whatsapp. Para hacerlo podés hacer
+          click en el botón de abajo
+        </p>
         <a
           class="w-100"
           [href]="'https://wa.me/' + whatsapp"
