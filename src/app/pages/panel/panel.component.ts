@@ -42,8 +42,12 @@ export class PanelComponent implements OnInit {
       whatsapp: [''],
       interesGastos: [0],
       interesPersonales12: [0],
+      interesPersonales18: [0],
+      interesPersonales24: [0],
       interesPersonales36: [0],
       interesPrendarios12: [0],
+      interesPrendarios18: [0],
+      interesPrendarios24: [0],
       interesPrendarios36: [0],
     });
     this.productForm = this.fb.group(this.initalFormValue);
